@@ -1,0 +1,68 @@
+menu "USB Display Configuration"
+
+    menu "TinyUSB Configuration"
+
+        config TUSB_VID
+            hex "USB Device VID"
+            default 0x303A
+        config TUSB_PID
+            hex "USB Device PID"
+            # 0x2987 = 纯显示设备（Windows 驱动 INF 匹配 USB\VID_303A&PID_2987）
+            default 0x2987
+        config TUSB_MANUFACTURER
+            string "USB Device Manufacture"
+            default "Espressif"
+        config TUSB_PRODUCT
+            string "Product Name"
+            default "baibai_usb_display"
+
+        choice TINYUSB_RHPORT
+            prompt "TinyUSB PHY"
+            default TINYUSB_RHPORT_HS
+            help
+                P4 有两个 USB 口：HS(UTMI 内部 PHY) 与 FS。
+                板子 USB 座接哪个口决定选哪档，先按官方示例默认 HS。
+
+            config TINYUSB_RHPORT_HS
+                bool "HS"
+            config TINYUSB_RHPORT_FS
+                bool "FS"
+        endchoice
+
+    endmenu
+
+    menu "USB extend screen configuration"
+        config USB_EXTEND_SCREEN_JPEG_QUALITY
+            int "USB extend screen jpeg quality (1-10)"
+            default 6
+            range 1 10
+        config USB_EXTEND_SCREEN_MAX_FPS
+            int "USB extend screen max fps"
+            # 面板 46Hz（DPI 80MHz + V_total 1450），对齐面板扫描率
+            default 46
+            range 1 60
+        config USB_EXTEND_SCREEN_FRAME_LIMIT_B
+            int "Maximum frame image (B)"
+            default 300000
+            help
+                Windows 驱动发来的单帧 JPEG 最大长度，同时决定接收缓冲池大小。
+    endmenu
+
+    config USB_TASK_PRIORITY
+        int "USB Task Priority"
+        default 6
+        range 1 15
+
+    config VENDOR_TASK_PRIORITY
+        int "Vendor Task Priority"
+        default 5
+        range 1 15
+
+    config EXAMPLE_LCD_BUF_COUNT
+        int "LCD Decode Buffer Count"
+        default 3
+        range 1 3
+        help
+            JPEG 解码输出缓冲个数（800x1280x2=2MB/个，PSRAM）。
+
+endmenu

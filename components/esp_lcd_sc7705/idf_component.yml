@@ -1,0 +1,14 @@
+version: "1.0.0"
+description: "esp_lcd panel driver for SC7705 800x1280 MIPI-DSI display on ESP32-P4 (2-lane, RGB565, ~46Hz)"
+url: https://github.com/meibao-real/esp_lcd_sc7705
+targets:
+  - esp32p4
+keywords:
+  - esp32p4
+  - lcd
+  - mipi-dsi
+  - display
+  - sc7705
+dependencies:
+  idf:
+    version: ">=5.3"

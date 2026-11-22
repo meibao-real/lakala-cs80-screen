@@ -1,0 +1,6 @@
+dependencies:
+  idf:
+    version: '>=5.4.0'
+  esp_lcd_sc7705:
+    override_path: ../components/esp_lcd_sc7705
+  espressif/tinyusb: "*"
