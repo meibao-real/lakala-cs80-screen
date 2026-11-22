@@ -10,6 +10,20 @@
 
 ![](img/demo.jpg)
 
+## 问答
+
+**问：为什么不直接用自带的主板做？**
+
+答：自带的主板用的是移远 EC600U 模组，无论是基于 C 语言的 Helios 还是基于 Python 的 QuecPython，都不提供 USB 相关的 API 接口，USB 侧能用的只有模组自带的 CDC 虚拟串口。流畅刷屏至少需要跑满 480 Mbps 的带宽，原主板走串口的方式根本做不到。
+
+**问：那原来的主板能做什么？**
+
+答：可以做信息屏，也就是固定模板化的显示内容、或者低频更新画面，借助上位机把数据通过串口推送到主板上。已经有人做了：[xbsheng/lakala-cs80](https://github.com/xbsheng/lakala-cs80) 这个项目就是用串口来实现信息更新的，对方还做好了上位机，可以去看看。
+
+**问：我应该怎么选？**
+
+答：你想要信息屏，就看看[xbsheng/lakala-cs80](https://github.com/xbsheng/lakala-cs80) 这个项目，设备需要一根电源线和TYPE-C线；想要改造独立的显示屏，就用这个项目，这个项目供电加数据只需要一根TYPE-C线。注意由于使用了微软的idd驱动，目前只能在windows系统下使用
+
 ## PC 侧使用
 
 1. 安装乐鑫官方签名驱动（base 项目 chuanjinpang/win10_idd 的 fork）：[下载](https://dl.espressif.com/AE/esp-iot-solution/xfz1986_usb_graphic_250224_rc_sign.exe)
