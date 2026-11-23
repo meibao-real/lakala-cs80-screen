@@ -24,6 +24,9 @@
 
 答：你想要信息屏，就看看[xbsheng/lakala-cs80](https://github.com/xbsheng/lakala-cs80) 这个项目，设备需要一根电源线和TYPE-C线；想要改造独立的显示屏，就用这个项目，这个项目供电加数据只需要一根TYPE-C线。注意由于使用了微软的idd驱动，目前只能在windows系统下使用
 
+**其他CS80开源项目**
+- https://github.com/uaih3k9x/Monita-CS80-lakala
+
 ## PC 侧使用
 
 1. 安装乐鑫官方签名驱动（base 项目 chuanjinpang/win10_idd 的 fork）：[下载](https://dl.espressif.com/AE/esp-iot-solution/xfz1986_usb_graphic_250224_rc_sign.exe)
